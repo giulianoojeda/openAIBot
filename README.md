@@ -1,4 +1,7 @@
 # Asistente de Pedidos de Lomiteria Arabe
+[![Python](https://img.shields.io/badge/python-3.7%2B-blue)](https://www.python.org/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--3.5--turbo-red)](https://beta.openai.com/docs/models/gpt-3.5-turbo)
+[![Gradio](https://img.shields.io/badge/Gradio-UI-green)](https://www.gradio.app/)
 
 This project is a simple chatbot for an Arabic Lomito restaurant that helps customers place their orders. The chatbot is built using OpenAI's GPT-3.5-turbo and Gradio for the user interface. The chatbot speaks Spanish and Portuguese, and it follows a friendly, conversational style. It can handle orders, delivery details, and payment methods while keeping track of the conversation history.
 
