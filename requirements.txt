@@ -1,0 +1,3 @@
+openai>=0
+gradio>=0
+python-dotenv>=0
