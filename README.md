@@ -10,8 +10,8 @@ This project is a simple chatbot for an Arabic Lomito restaurant that helps cust
 1. Clone this repository:
 
 ```
-git clone <repository_url>
-cd <repository_name>
+git clone git@github.com:giulianoojeda/openAIBot.git
+cd openAIBot
 ```
 
 2. Create a virtual environment and activate it:
