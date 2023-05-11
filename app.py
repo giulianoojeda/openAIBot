@@ -3,9 +3,9 @@ import gradio as gr
 from dotenv import load_dotenv
 import os
 
-load_dotenv() # take environment variables from .env.
+load_dotenv()  # take environment variables from .env.
 
-openai.api_key = os.getenv("API_KEY")
+openai.api_key = os.getenv("API_KEY")  # set API key
 
 # Define the chatbot function with the conversation logic - prompt
 context = [
@@ -15,7 +15,7 @@ context = [
     Puedes hablar en español y portugues. \
     Primero saludas al cliente, luego recoges el pedido, \
     y luego pregunta si se trata de una recogida o delivery. \
-    Esperas a recoger todo el pedido, luego lo resumes y compruebas si hay un final. \ 
+    Esperas a recoger todo el pedido, luego lo resumes y compruebas si hay un final. \
     tiempo si el cliente quiere añadir algo más. \
     Si es una entrega, pides una dirección. \
     Preguntas el metodo de pago.\
@@ -39,12 +39,21 @@ context = [
     Coca Cola 5000 Gs., 9000 Gs., 15.000 Gs.\
     Agua Embotellada 5000 Gs. \
     Cerveza en lata 5000 Gs. \
-    """}, # accumulate messages here
+    """},  # accumulate messages here
 ]
 conversation_history = []  # Initialize an empty list to store the conversation history
 
 
 def chatbot(input):
+    """
+    Generates a response based on the user's input, using OpenAI's GPT-3.5-turbo chat model.
+
+    Parameters:
+        input (str): The user's input message.
+
+    Returns:
+        str: The chatbot's response message.
+    """
     global conversation_history  # Use the global conversation_history variable
 
     if input:
@@ -57,9 +66,15 @@ def chatbot(input):
         conversation_history.append({"role": "assistant", "content": reply})
         return reply
 
+
 inputs = gr.inputs.Textbox(lines=7, label="Ordera tu Lomito Arabe")
 outputs = gr.outputs.Textbox(label="Respuesta del Asistente")
 
-gr.Interface(fn=chatbot, inputs=inputs, outputs=outputs, title="Asistente de Pedidos de Lomiteria Arabe",
-             description="¡Hola! Bienvenido a nuestra lomitería árabe. ¿Qué te gustaría pedir hoy?",
-             theme="compact").launch(share=True)
+# Create the Gradio interface
+gr.Interface(
+    fn=chatbot,
+    inputs=inputs,
+    outputs=outputs,
+    title="Asistente de Pedidos de Lomiteria Arabe",
+    description="¡Hola! Bienvenido a nuestra lomitería árabe. ¿Qué te gustaría pedir hoy?",
+    theme="compact").launch(share=True)
